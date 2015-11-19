@@ -1,0 +1,54 @@
+---
+title: "Shiny Presentation"
+author: "Andres Azqueta gavaldon"
+date: "November 19, 2015"
+output: ioslides_presentation
+runtime: shiny
+---
+
+## INTRODUCTION
+
+This is a presentation that aims at calculating the "maximum annual retirement allocance". 
+
+To learn more about the intuition behind see [Interative Documents](http://sers.pa.gov/members-pension-formula.aspx).
+
+- (BENEFIT ACRUAL RATE) X (YEARS OF CREDITED SERVICE) X (AVERAGE SALARY)
+= (MAXIMUM ANNUAL RETIREMENT ALLOWANCE)
+
+- As it can be seen, the pension formula takes into account the "benefit 
+accrual rate", the years of credited service and the average salary. 
+
+- In my application I have set the first factor to be 10 percent
+
+
+## MECHANISM BEHIND
+
+- The variables selected can be seen in the following gadgets:
+
+```{r, echo=FALSE}
+inputPanel(
+  selectInput("n_breaks", label = "Average Expected Salary Per Year (1000 $):",
+              choices = c(10, 20,30, 40,50, 60, 70, 80, 90), selected = 40),
+  
+  sliderInput("bw_adjust", label = "Years of credited Service:",
+              min = 0, max = 50, value = 30, step = 5)
+)
+
+```
+
+## FURTHER INFORMATION
+
+- Not all variables in the application are relevant to calculate the Pensions amount. In this sense, Age and Gender do not play any role beyond data collection from ysers.
+
+- As an example consieder the following values:
+-  Average Expected Salary Per year = 30 000 dollars
+- Years of credited Service = 40 
+- Pension calculation = 120 000 dollars
+
+## CONCLUIONS
+
+- This application serves as a merely approximation for the pension scheme, therefore the results shold be not taken for granted
+
+- Hope you enjoy the application!
+
+
